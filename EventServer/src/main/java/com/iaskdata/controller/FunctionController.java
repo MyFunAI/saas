@@ -4,7 +4,13 @@ import java.util.List;
 
 import hex.genmodel.easy.exception.PredictException;
 
+import com.alibaba.fastjson.JSONObject;
+import com.iaskdata.interceptor.ContentTypeInterceptor;
+import com.iaskdata.interceptor.JSONInterceptor;
+import com.iaskdata.interceptor.MethodInterceptor;
 import com.iaskdata.service.PredictService;
+import com.iaskdata.util.Constant;
+import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 
@@ -12,6 +18,7 @@ import com.jfinal.core.Controller;
  * 功能接口
  * 
  */
+
 public class FunctionController extends Controller {
 
 	/**
@@ -19,6 +26,7 @@ public class FunctionController extends Controller {
 	 */
 	@ActionKey("/gettime")
 	public void getTime() {
+
 		setAttr("status", 0);
 		setAttr("ts", System.currentTimeMillis());
 	}
@@ -40,11 +48,11 @@ public class FunctionController extends Controller {
 	@ActionKey("/predict")
 	public void predict() {
 		setAttr("status", 0);
-
+		this.getRequest().getQueryString();
 		PredictService ps = new PredictService();
-		try {
+		try {			
 			List result = ps
-					.predictHandle("loan_amnt=10000&emp_length=5&home_ownership=RENT&annual_inc=60000&verification_status=verified&purpose=debt_consolidation&addr_state=FL&dti=3&delinq_2yrs=0&revol_util=35&total_acc=4&longest_credit_length=10");
+					.predictHandle(this.getRequest().getQueryString());
 			setAttr("result", result);
 		} catch (PredictException e) {
 			setAttr("status", -1);
