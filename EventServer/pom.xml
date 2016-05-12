@@ -34,6 +34,15 @@
     </profiles>
 
     <dependencies>
+    	<!-- h2o framework -->
+		<dependency>
+			<groupId>ai.h2o</groupId>
+			<artifactId>h2o-genmodel</artifactId>
+			<version>3.6.0.11</version>
+		</dependency>
+
+
+    
 		<!-- zookeeper client -->
         <dependency>
             <groupId>org.apache.curator</groupId>
