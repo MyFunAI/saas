@@ -23,6 +23,10 @@ public class FunctionController extends Controller {
 	 */
 	@ActionKey("/train")
 	public void train() {
+		setAttr("status", -1);
+		setAttr("msg", "Unimplemented");
+		setAttr("ts", System.currentTimeMillis());
+
 	}
 
 	/**
@@ -30,6 +34,9 @@ public class FunctionController extends Controller {
 	 */
 	@ActionKey("/predict")
 	public void predict() {
+		setAttr("status", -1);
+		setAttr("msg", "Unimplemented");
+		setAttr("ts", System.currentTimeMillis());
 	}
 
 }
