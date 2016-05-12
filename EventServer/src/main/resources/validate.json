@@ -1,0 +1,88 @@
+{
+  "common": {
+    "appid": 64,
+    "context": {
+      "size": 32,
+      "deviceid": 128
+    }
+  },
+  "register": {
+    "who": 64
+  },
+  "loggedin": {
+    "who": 64
+  },
+  "payment": {
+    "who": 64,
+    "context": {
+      "transactionid": 64,
+      "paymenttype": 16,
+      "currencytype": 3,
+      "currencyamount": 16
+    }
+  },
+  "economy": {
+    "who": 64,
+    "context": {
+      "itemname": 64,
+      "itemamount": 16,
+      "itemtotalprice": 16
+    }
+  },
+  "quest": {
+    "who": 64,
+    "context": {
+      "questid": 32,
+      "queststatus": 1,
+      "questtype": 16
+    }
+  },
+  "event": {
+    "who": 64,
+    "what": 32
+  },
+  "heartbeat": {
+    "who": 64
+  },
+  "click": {
+    "context": {
+      "ip":64,
+      "channelid": 128
+    }
+  },
+  "profile": {
+    "who": 64,
+    "context": {
+      "serverid": 128,
+      "name": 128,
+      "servergamerid": 128
+    }
+  },
+  "pfstartup": {
+    "who": 64
+  },
+  "pfheartbeat": {
+    "who": 64
+  },
+  "pferror": {
+    "who": 64,
+    "context": {
+      "error": 128
+    }
+  },
+  "appstartup": {
+    "who": 64,
+    "context": {
+      "appname": 128,
+      "packagename": 128
+    }
+  },
+  "apptimeline": {
+    "who": 64,
+    "context": {
+      "appname": 128,
+      "packagename": 128,
+      "timeline": 128
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+		<encoder>
+			<pattern>%d [%t] %-5p %C{0}:%L - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="rawdata"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.rawdata.file}</file>
+		<encoder>
+			<pattern>%m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.rawdata.file}.%d{yyyy-MM-dd-HH}${log.file.suffix}</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="segments"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.segments.file}</file>
+		<encoder>
+			<pattern>%m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.segments.file}.%d{yyyy-MM-dd-HH}${log.file.suffix}</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+
+    
+    <logger name="stdout" level="info">
+        <appender-ref ref="stdout" />
+    </logger>
+    
+   	<logger name="rawdata" level="info">
+		<appender-ref ref="rawdata" />
+	</logger>
+
+	<logger name="segments" level="info">
+		<appender-ref ref="segments" />
+	</logger>
+
+</configuration>
