@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.iaskdata</groupId>
     <artifactId>EventServer</artifactId>
@@ -34,16 +34,55 @@
     </profiles>
 
     <dependencies>
-    	<!-- h2o framework -->
-		<dependency>
-			<groupId>ai.h2o</groupId>
-			<artifactId>h2o-genmodel</artifactId>
-			<version>3.6.0.11</version>
-		</dependency>
+        <!-- spark framework
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.10</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+-->
+
+        <!-- h2o framework -->
+        <dependency>
+            <groupId>ai.h2o</groupId>
+            <artifactId>sparkling-water-core_2.10</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>ai.h2o</groupId>
+            <artifactId>sparkling-water-examples_2.10</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ai.h2o</groupId>
+            <artifactId>h2o-core</artifactId>
+            <version>3.8.2.3</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>ai.h2o</groupId>
+            <artifactId>h2o-algos</artifactId>
+            <version>3.6.0.11</version>
+        </dependency>
 
 
-    
-		<!-- zookeeper client -->
+        <dependency>
+            <groupId>ai.h2o</groupId>
+            <artifactId>h2o-genmodel</artifactId>
+            <version>3.6.0.11</version>
+        </dependency>
+
+
+
+
+        <!-- zookeeper client -->
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>

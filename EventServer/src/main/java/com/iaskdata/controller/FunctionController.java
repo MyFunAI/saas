@@ -1,8 +1,8 @@
 package com.iaskdata.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import hex.genmodel.easy.exception.PredictException;
 
 import com.alibaba.fastjson.JSONObject;
 import com.iaskdata.interceptor.ContentTypeInterceptor;
@@ -50,16 +50,16 @@ public class FunctionController extends Controller {
 		setAttr("status", 0);
 		this.getRequest().getQueryString();
 		PredictService ps = new PredictService();
-		try {			
-			List result = ps
-					.predictHandle(this.getRequest().getQueryString());
+//		try {			
+			List result = new ArrayList(); 
+					//ps.predictHandle(this.getRequest().getQueryString());
 			setAttr("result", result);
-		} catch (PredictException e) {
-			setAttr("status", -1);
-			setAttr("msg", "Unimplemented");
-			setAttr("ts", System.currentTimeMillis());
-			e.printStackTrace();
-		}
+//		} catch (PredictException e) {
+//			setAttr("status", -1);
+//			setAttr("msg", "Unimplemented");
+//			setAttr("ts", System.currentTimeMillis());
+//			e.printStackTrace();
+//		}
 
 	}
 

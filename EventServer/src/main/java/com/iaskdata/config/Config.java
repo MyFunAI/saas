@@ -1,5 +1,8 @@
 package com.iaskdata.config;
 
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
+
 import com.alibaba.fastjson.JSONObject;
 import com.iaskdata.controller.FunctionController;
 import com.iaskdata.controller.RestController;
@@ -28,6 +31,36 @@ public class Config extends JFinalConfig {
 	 * 配置常量
 	 */
 	public void configConstant(Constants me) {
+		Thread spark = new Thread() {
+
+			@Override
+			public void run() {
+
+				SparkConf conf = new SparkConf().setAppName("EventServer")
+				// .setMaster("spark://x00:7077");
+						.setMaster("local[4]");
+				JavaSparkContext jsc = new JavaSparkContext(conf);
+				jsc.addJar("/tmp/sparkling-water-core_2.10-1.6.3.jar");
+
+				// JavaStreamingContext ssc = new JavaStreamingContext(jsc,
+				// new Duration(10000));
+
+				// SQL support
+				// SQLContext sqlContext = new SQLContext(jsc);
+				// Start H2O services
+				
+//				H2OContext h2oContext = H2OContext.getOrCreate(jsc);
+				// h2oContext.implicits();
+//				h2oContext.start();
+				// ssc.socketTextStream("localhost", 9999);
+				//
+				// ssc.start();
+				// ssc.awaitTermination();
+
+			}
+		};
+//		spark.start();
+
 		loadPropertyFile("conf.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", true));
 
