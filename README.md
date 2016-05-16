@@ -3,6 +3,9 @@
 ## 服务启动：    
 * 需要本地安装maven版本3.0以上    
 * mvn jetty:run    
+* 训练模型
+* mvn scala:run -Dlauncher=PojoExample
+* mvn scala:run -Dlauncher=SparklingWaterDroplet
 
 ## 日志收集：    
 * 发送数据到EventServer,该接口是标准rest API    
