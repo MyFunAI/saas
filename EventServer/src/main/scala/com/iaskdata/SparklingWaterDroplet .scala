@@ -42,6 +42,23 @@ object SparklingWaterDroplet {
     val gbm = new GBM(gbmParams)
     val gbmModel = gbm.trainModel.get
 
+    //genmodel start
+    import water._
+    import _root_.hex._
+    import java.net.URI
+    import water.serial.ObjectTreeBinarySerializer
+    val destFile = new File("data/GbmModel.java")
+    val fos = new java.io.FileOutputStream(destFile)
+    val writer = new gbmModel.JavaModelStreamWriter(false)
+    try {
+      writer.writeTo(fos)
+    } finally {
+      fos.close()
+    }
+
+    //--genmodel end
+
+
     // Make prediction on train data
     val predict = gbmModel.score(irisTable)('predict)
 

@@ -31,7 +31,7 @@ object PojoExample extends Logging {
       .map(_.split(","))
       .map(p => Row(f(p(0)), f(p(1)), f(p(2)), f(p(3))))
 
-    logInfo("Loading POJO by its class name: 'gbm_02c92461_25ea_45d2_9bf9_af2fa92758d2'")
+    logInfo("Loading POJO by its class name: 'com.iaskdata.model.gbm_02c92461_25ea_45d2_9bf9_af2fa92758d2'")
     // We use classloading here instead of referencing pojo directly.
     // In normal case, you should use here a dedicated URI classloader to load
     // POJO from given URI.
