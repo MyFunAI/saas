@@ -22,10 +22,10 @@ object PojoExample extends Logging {
 
     // Register file for reading around cluster.
     // The data file is simple iris file without any header
-    sc.addFile("data/iris.csv")
+    sc.addFile("data/iris_pojoexample.csv")
 
-    logInfo(s"Loading data from ${SparkFiles.get("iris.csv")} into DataFrame")
-    val testDataRdd = sc.textFile(SparkFiles.get("iris.csv"))
+    logInfo(s"Loading data from ${SparkFiles.get("iris_pojoexample.csv")} into DataFrame")
+    val testDataRdd = sc.textFile(SparkFiles.get("iris_pojoexample.csv"))
       .map(_.trim)
       .filter(!_.isEmpty)
       .map(_.split(","))

@@ -27,10 +27,11 @@ object SparklingWaterDroplet {
     import h2oContext.implicits._
 
     // Register file to be available on all nodes
-    sc.addFile(new File("data/iris.csv").getAbsolutePath)
+//    sc.addFile(new File("data/iris_sparklingwaterdroplet.csv").getAbsolutePath)
+    sc.addFile("data/iris_sparklingwaterdroplet.csv")
 
     // Load data and parse it via h2o parser
-    val irisTable = new H2OFrame(new File(SparkFiles.get("iris.csv")))
+    val irisTable = new H2OFrame(new File(SparkFiles.get("iris_sparklingwaterdroplet.csv")))
 
     // Build GBM model
     val gbmParams = new GBMParameters()
