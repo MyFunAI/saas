@@ -46,6 +46,11 @@
             <artifactId>scala-compiler</artifactId>
             <version>2.10.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.10.6</version>
+        </dependency>
 
         <!-- h2o framework -->
 
@@ -179,7 +184,7 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main</sourceDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -191,7 +196,36 @@
         </resources>
 
         <plugins>
-
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.15.2</version>
+                <configuration>
+                <sourceDir>src/main/scala</sourceDir>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <phase>test-compile</phase>
+                    </execution>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
@@ -208,6 +242,7 @@
                         </launcher>
                     </launchers>
                 </configuration>
+
             </plugin>
 
 

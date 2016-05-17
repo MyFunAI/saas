@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.iaskdata.TestScalaObject;
 import com.iaskdata.interceptor.ContentTypeInterceptor;
 import com.iaskdata.interceptor.JSONInterceptor;
 import com.iaskdata.interceptor.MethodInterceptor;
@@ -36,6 +37,8 @@ public class FunctionController extends Controller {
 	 */
 	@ActionKey("/train")
 	public void train() {
+//        TestScalaObject tso=new TestScalaObject();
+//        tso.sayhello();
 		setAttr("status", -1);
 		setAttr("msg", "Unimplemented");
 		setAttr("ts", System.currentTimeMillis());
