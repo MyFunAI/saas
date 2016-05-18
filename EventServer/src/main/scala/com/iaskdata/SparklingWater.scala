@@ -75,8 +75,11 @@ object SparklingWater {
       act.result != pred.result
     }).collect()
 
+    val numPredictions = trainRDD.zip(predictRDD).collect()
+
     println(
       s"""
+         |Number of Predictions: ${numPredictions.length}
          |Number of mispredictions: ${numMispredictions.length}
          |
          |Mispredictions:
@@ -85,6 +88,7 @@ object SparklingWater {
          |------------------
          |${numMispredictions.map(i => i._1.result.get + " X " + i._2.result.get).mkString("\n")}
        """.stripMargin)
+
   }
 
   def main(args: Array[String]) {
