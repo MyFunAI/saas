@@ -4,14 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.iaskdata.TestScalaObject;
-import com.iaskdata.interceptor.ContentTypeInterceptor;
-import com.iaskdata.interceptor.JSONInterceptor;
-import com.iaskdata.interceptor.MethodInterceptor;
+import com.iaskdata.TestScalaObject$;
 import com.iaskdata.service.PredictService;
-import com.iaskdata.util.Constant;
-import com.jfinal.aop.Before;
 import com.jfinal.core.ActionKey;
 import com.jfinal.core.Controller;
 
@@ -37,9 +32,10 @@ public class FunctionController extends Controller {
 	 */
 	@ActionKey("/train")
 	public void train() {
-//        TestScalaObject tso=new TestScalaObject();
-//        tso.sayhello();
-		setAttr("status", -1);
+        TestScalaObject tso=new TestScalaObject();
+        tso.sayhello();
+        TestScalaObject$.MODULE$.sayhello();
+        setAttr("status", -1);
 		setAttr("msg", "Unimplemented");
 		setAttr("ts", System.currentTimeMillis());
 
