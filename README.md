@@ -30,5 +30,9 @@
   * config.h vwb版本文件     
   * vw_jni.lib mac下编译出来的版本     
   * vw-jni-8.1.2-SNAPSHOT.jar vw最新java文件夹编译出来的jar包    
-* 必要条件
- 
+* 关于vw的测试用例都在 saas/EventServer/src/test/java/vw 下面
+* 运行测试用例必要条件
+  * mvn clean 
+  * mvn install
+  * mvn test
+* 如果修改了测试用例，只需要执行mvn test就可以检查运行是否正确了
