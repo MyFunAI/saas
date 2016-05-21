@@ -27,8 +27,8 @@
 
 ## 关于vw的使用    
 * 所有vw包在lib目录下    
-> config.h vwb版本文件     
-> vw_jni.lib mac下编译出来的版本     
-> vw-jni-8.1.2-SNAPSHOT.jar vw最新java文件夹编译出来的jar包    
+  * config.h vwb版本文件     
+  * vw_jni.lib mac下编译出来的版本     
+  * vw-jni-8.1.2-SNAPSHOT.jar vw最新java文件夹编译出来的jar包    
 * 必要条件
  
