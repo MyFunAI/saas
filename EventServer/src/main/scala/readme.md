@@ -22,3 +22,16 @@
     * 导出模型为xxx.java文件
     * 添加xxx.java文件到java/com.iaskdata.model目录
     * 修改java/com.iaskdata.service.PredictService.java 进行数据预测
+    
+    
+* 关于新建scala文件,如何运行
+    * 编写pom.xml文件,在pom.xml里面搜索launcher,并且按照下面编写就可以 
+    ``
+        <!-- scala 配置-->
+        <launcher>
+            <id>PojoExample</id>   #任意不重复的名称
+            <mainClass>com.iaskdata.PojoExample</mainClass>  #类路径
+        </launcher>
+        <!-- scala 配置-->    
+        mvn scala:run -Dlauncher=PojoExample 就可以运行了
+    ``

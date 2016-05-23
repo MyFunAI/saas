@@ -250,10 +250,12 @@
                 <version>3.2.1</version>
                 <configuration>
                     <launchers>
+                        <!-- scala 配置-->
                         <launcher>
                             <id>PojoExample</id>
                             <mainClass>com.iaskdata.PojoExample</mainClass>
                         </launcher>
+                        <!-- scala 配置-->
                         <launcher>
                             <id>SparklingWaterDroplet</id>
                             <mainClass>com.iaskdata.SparklingWaterDroplet</mainClass>
