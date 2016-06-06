@@ -106,5 +106,13 @@ public class PredictService {
 		result.add(s);
 		return result;
 	}
+	public  static  void main(String args[]) throws PredictException {
+		PredictService ps =new PredictService();
+		List result =ps.predictHandle("loan_amnt=10000&emp_length=5&home_ownership=RENT&annual_inc=60000&verification_status=verified&purpose=debt_consolidation&addr_state=FL&dti=3&delinq_2yrs=0&revol_util=35&total_acc=4&longest_credit_length=10");
+		for (Object str:result
+			 ) {
+			System.out.println(str);
+		}
+	}
 
 }

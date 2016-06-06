@@ -36,7 +36,7 @@ public class ConsumerLoanController extends Controller implements  Prediction{
         PredictService ps = new PredictService();
 		try {
         List result = new ArrayList();
-        ps.predictHandle(this.getRequest().getQueryString());
+            result=  ps.predictHandle(this.getRequest().getQueryString());
         setAttr("result", result);
 		} catch (PredictException e) {
 			setAttr("status", -1);

@@ -1,11 +1,10 @@
 package com.iaskdata.config;
 
+import com.iaskdata.controller.*;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 
 import com.alibaba.fastjson.JSONObject;
-import com.iaskdata.controller.FunctionController;
-import com.iaskdata.controller.RestController;
 import com.iaskdata.interceptor.CORSInterceptor;
 import com.iaskdata.render.JsonRender;
 import com.iaskdata.validator.Validator;
@@ -102,6 +101,9 @@ public class Config extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/rest", RestController.class);
 		me.add("/function", FunctionController.class);
+        me.add("/ac", AdsClickController.class);
+        me.add("/cl", ConsumerLoanController.class);
+        me.add("/ec", ECommerceController.class);
 	}
 
 	/**
