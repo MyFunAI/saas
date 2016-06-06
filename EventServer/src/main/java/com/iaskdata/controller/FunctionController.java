@@ -27,39 +27,4 @@ public class FunctionController extends Controller {
 		setAttr("ts", System.currentTimeMillis());
 	}
 
-	/**
-	 * 模型训练接口
-	 */
-	@ActionKey("/train")
-	public void train() {
-        TestScalaObject tso=new TestScalaObject();
-        tso.sayhello();
-        TestScalaObject$.MODULE$.sayhello();
-        setAttr("status", -1);
-		setAttr("msg", "Unimplemented");
-		setAttr("ts", System.currentTimeMillis());
-
-	}
-
-	/**
-	 * 模型預測接口
-	 */
-	@ActionKey("/predict")
-	public void predict() {
-		setAttr("status", 0);
-		this.getRequest().getQueryString();
-		PredictService ps = new PredictService();
-//		try {			
-			List result = new ArrayList(); 
-					//ps.predictHandle(this.getRequest().getQueryString());
-			setAttr("result", result);
-//		} catch (PredictException e) {
-//			setAttr("status", -1);
-//			setAttr("msg", "Unimplemented");
-//			setAttr("ts", System.currentTimeMillis());
-//			e.printStackTrace();
-//		}
-
-	}
-
 }
