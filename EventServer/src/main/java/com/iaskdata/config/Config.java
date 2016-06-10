@@ -1,6 +1,8 @@
 package com.iaskdata.config;
 
+import com.iaskdata.SparklingWater$;
 import com.iaskdata.controller.*;
+import hex.tree.gbm.GBMModel;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 
@@ -17,6 +19,14 @@ import com.jfinal.config.Routes;
 import com.jfinal.render.IErrorRenderFactory;
 import com.jfinal.render.IMainRenderFactory;
 import com.jfinal.render.Render;
+import org.apache.spark.h2o.H2OContext;
+import org.apache.spark.sql.SQLContext;
+import org.apache.spark.streaming.Duration;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
+import water.fvec.H2OFrame;
+
+import java.net.URL;
+import java.net.URLClassLoader;
 
 /**
  * API引导式配置
@@ -35,30 +45,17 @@ public class Config extends JFinalConfig {
 			@Override
 			public void run() {
 
-				SparkConf conf = new SparkConf().setAppName("EventServer")
-				// .setMaster("spark://x00:7077");
-						.setMaster("local[4]");
-				JavaSparkContext jsc = new JavaSparkContext(conf);
-				jsc.addJar("/tmp/sparkling-water-core_2.10-1.6.3.jar");
+//				SparklingWater$.MODULE$.configure("test");
 
-				// JavaStreamingContext ssc = new JavaStreamingContext(jsc,
-				// new Duration(10000));
+                H2OFrame irisTable=SparklingWater$.MODULE$.addFile("data/iris_sparklingwater.csv", "iris_sparklingwater.csv");
 
-				// SQL support
-				// SQLContext sqlContext = new SQLContext(jsc);
-				// Start H2O services
-				
-//				H2OContext h2oContext = H2OContext.getOrCreate(jsc);
-				// h2oContext.implicits();
-//				h2oContext.start();
-				// ssc.socketTextStream("localhost", 9999);
-				//
-				// ssc.start();
-				// ssc.awaitTermination();
+                GBMModel gbmModel = SparklingWater$.MODULE$.train(irisTable);
 
+                SparklingWater$.MODULE$.predict(gbmModel, irisTable);
 			}
 		};
 //		spark.start();
+
 
 		loadPropertyFile("conf.properties");
 		me.setDevMode(getPropertyToBoolean("devMode", true));

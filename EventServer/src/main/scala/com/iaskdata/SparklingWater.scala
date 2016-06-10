@@ -4,6 +4,7 @@
 package com.iaskdata
 
 import java.io.File
+import java.net.{URL, URLClassLoader}
 
 import hex.tree.gbm.GBMModel.GBMParameters
 import hex.tree.gbm.{GBM, GBMModel}
@@ -92,18 +93,35 @@ object SparklingWater {
   }
 
   def main(args: Array[String]) {
+    System.out.println("hello world!!")
 
-    val irisTable = this.addFile("data/iris_sparklingwater.csv", "iris_sparklingwater.csv")
+    System.out.println("---------------------------------------------------------")
+    val sysClassLoader: ClassLoader = ClassLoader.getSystemClassLoader
+    //        ClassLoader sysClassLoader = CallSparkInJava.class.getClassLoader();
+    //Get the URLs
+    val urls: Array[URL] = (sysClassLoader.asInstanceOf[URLClassLoader]).getURLs
+
+    var i: Int = 0
+    while (i < urls.length) {
+      {
+        System.out.println(urls(i).getFile)
+      }
+      ({
+        i += 1; i - 1
+      })
+    }
+    System.out.println("---------------------------------------------------------")
+
+
+//    val irisTable = this.addFile("data/iris_sparklingwater.csv", "iris_sparklingwater.csv")
+////
 //
-//    val tmp =this.addFile("data/iris_sparklingwater.csv", "iris_sparklingwater.csv");
-//    val xx = irisTable.add(tmp)
-
-    val gbmModel = this.train(irisTable)
-
-    this.predict(gbmModel, irisTable)
+//    val gbmModel = this.train(irisTable)
+//
+//    this.predict(gbmModel, irisTable)
 
     // Shutdown application
-    sc.stop()
+//    sc.stop()
   }
 
   def configure(appName: String = "Sparkling Water Demo"): SparkConf = {

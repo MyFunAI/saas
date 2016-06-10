@@ -245,9 +245,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>3.2.1</version>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
                 <configuration>
                     <launchers>
                         <!-- scala 配置-->
@@ -259,6 +258,11 @@
                         <launcher>
                             <id>SparklingWaterDroplet</id>
                             <mainClass>com.iaskdata.SparklingWaterDroplet</mainClass>
+                        </launcher>
+
+                        <launcher>
+                            <id>SparklingWater</id>
+                            <mainClass>com.iaskdata.SparklingWater</mainClass>
                         </launcher>
                     </launchers>
                 </configuration>
