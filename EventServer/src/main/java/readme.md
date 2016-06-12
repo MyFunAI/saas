@@ -28,3 +28,23 @@
 工具类
 * com.iaskdata.validator
 日志收集过程中,进行必填参数验证
+
+==================================
+Belief propagation algorithm
+==================================
+The algorithm details are in package algorithm.beliefpropagation.
+The entrance (the calling entry) of the BP algorithm is in AntiFraudController.
+Ideally, the data and parameter settings are provided by the users on
+the web client, while the code runs the algorithm with the provided settings.
+Currently, it takes three steps to run the algorithm:
+1) Create an edge binary file from a given edge text file
+2) Create a prior binary file from a given prior text file
+3) Run the BP algorithm with the binary files and other parameter settings
+For example (the following command lines may not work and are only used
+for illustration purposes)
+1) java BpGraphCreator.createBPMessages ../edges.txt ../edges.bin " "
+2) java BpGraphCreator.createBPPriors ../priors.txt ../priors.bin 6 " p"
+3) a Bp class needs to be instantiated by
+   new Bp("edges.bin", "priors.bin", 6, 5, 10, "./")
+   and then
+   java Bp.run()
