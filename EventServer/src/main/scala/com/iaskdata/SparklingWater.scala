@@ -93,24 +93,6 @@ object SparklingWater {
   }
 
   def main(args: Array[String]) {
-    System.out.println("hello world!!")
-
-    System.out.println("---------------------------------------------------------")
-    val sysClassLoader: ClassLoader = ClassLoader.getSystemClassLoader
-    //        ClassLoader sysClassLoader = CallSparkInJava.class.getClassLoader();
-    //Get the URLs
-    val urls: Array[URL] = (sysClassLoader.asInstanceOf[URLClassLoader]).getURLs
-
-    var i: Int = 0
-    while (i < urls.length) {
-      {
-        System.out.println(urls(i).getFile)
-      }
-      ({
-        i += 1; i - 1
-      })
-    }
-    System.out.println("---------------------------------------------------------")
 
 
 //    val irisTable = this.addFile("data/iris_sparklingwater.csv", "iris_sparklingwater.csv")

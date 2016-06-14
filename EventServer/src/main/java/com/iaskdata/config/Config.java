@@ -40,12 +40,12 @@ public class Config extends JFinalConfig {
 	 * 配置常量
 	 */
 	public void configConstant(Constants me) {
+
+
 		Thread spark = new Thread() {
 
 			@Override
 			public void run() {
-
-//				SparklingWater$.MODULE$.configure("test");
 
                 H2OFrame irisTable=SparklingWater$.MODULE$.addFile("data/iris_sparklingwater.csv", "iris_sparklingwater.csv");
 
@@ -54,7 +54,7 @@ public class Config extends JFinalConfig {
                 SparklingWater$.MODULE$.predict(gbmModel, irisTable);
 			}
 		};
-//		spark.start();
+		spark.start();
 
 
 		loadPropertyFile("conf.properties");
